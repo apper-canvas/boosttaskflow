@@ -6,14 +6,14 @@ import ApperIcon from "@/components/ApperIcon";
 import Checkbox from "@/components/atoms/Checkbox";
 import PriorityBadge from "@/components/molecules/PriorityBadge";
 
-const TaskCard = ({ 
+const TaskCard = React.forwardRef(({ 
   task,
   onToggleComplete,
   onEdit,
   onDelete,
   className,
   ...props 
-}) => {
+}, ref) => {
   const formatDueDate = (date) => {
     if (!date) return null;
     
@@ -33,8 +33,9 @@ const TaskCard = ({
     return "text-gray-500";
   };
 
-  return (
+return (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
@@ -115,8 +116,10 @@ const TaskCard = ({
           </div>
         </div>
       </div>
-    </motion.div>
+</motion.div>
   );
-};
+});
+
+TaskCard.displayName = "TaskCard";
 
 export default TaskCard;
