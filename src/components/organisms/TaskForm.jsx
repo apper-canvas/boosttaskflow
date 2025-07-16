@@ -18,7 +18,7 @@ const TaskForm = ({
     description: "",
     priority: "medium",
     dueDate: "",
-    listId: listId || "personal"
+listId: listId || "1"
   });
   const [lists, setLists] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -32,8 +32,8 @@ const TaskForm = ({
         title: task.title || "",
         description: task.description || "",
         priority: task.priority || "medium",
-        dueDate: task.dueDate ? new Date(task.dueDate).toISOString().split("T")[0] : "",
-        listId: task.listId || "personal"
+dueDate: task.dueDate ? new Date(task.dueDate).toISOString().split("T")[0] : "",
+        listId: task.listId || "1"
       });
     }
   }, [task]);
@@ -118,8 +118,8 @@ const TaskForm = ({
     { value: "low", label: "Low Priority" }
   ];
 
-  const listOptions = lists.map(list => ({
-    value: list.Id,
+const listOptions = lists.map(list => ({
+    value: list.Id.toString(),
     label: list.name
   }));
 

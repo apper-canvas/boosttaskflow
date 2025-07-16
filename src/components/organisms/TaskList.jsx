@@ -27,8 +27,8 @@ const TaskList = ({
       let filteredTasks = allTasks;
 
       // Filter by list
-      if (listId && listId !== "all") {
-        filteredTasks = filteredTasks.filter(task => task.listId === listId);
+if (listId && listId !== "all") {
+        filteredTasks = filteredTasks.filter(task => task.listId === listId.toString());
       }
 
       // Filter by search query
